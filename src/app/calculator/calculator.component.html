@@ -1,18 +1,44 @@
 <div class="container">
     <div class="form-box">
-        <form #frm="ngForm">
+        <form #frm="ngForm" (ngSubmit)="resultCalculator()">
             <h2>Calculadora</h2>
             <label for="numberOne">Número 1</label>
             <input type="number" name="numberOne" id="numberOne" [(ngModel)]="numberOne"/>
 
             <label for="numberTwo">Número 2</label>
             <input type="number" name="numberTwo" id="numberTwo" [(ngModel)]="numberTwo"/>
+            
+            <label>
+                Somar
+                <input type="radio" name="sumOperation" value="sum" [(ngModel)]="operation"/>
+            </label>
 
-            <button type="button" (click)="resultCalculator()">Somar</button>
+            <label>
+                Subtrair
+                <input type="radio" name="subtractOperation" value="subtract" [(ngModel)]="operation" />
+            </label>
+
+            <label>
+                Multiplicar
+                <input type="radio" name="multiplyOperation" value="multiply" [(ngModel)]="operation" />
+            </label>
+
+            <label>
+                Dividir
+                <input type="radio" name="splitOperation" value="split" [(ngModel)]="operation" />
+            </label>
+
+            <button type="submit">Calcular</button>
         </form>
 
-        <div class="result-display">
-            <p>Resultado: <span id="result"> {{ result }} </span></p>
-        </div>
+        @if (error) {
+            <div class="result-display">
+                <p>Erro: <span id="error"> {{ error }}</span></p>
+            </div>
+        } @else if (result) {
+            <div class="result-display">
+                <p>Resultado: <span id="result"> {{ result }}</span></p>
+            </div>
+        }
     </div>
 </div>

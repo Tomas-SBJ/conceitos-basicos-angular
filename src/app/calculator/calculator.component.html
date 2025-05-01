@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="form-box">
+        <form #frm="ngForm">
+            <h2>Calculadora</h2>
+            <label for="numberOne">Número 1</label>
+            <input type="number" name="numberOne" id="numberOne" [(ngModel)]="numberOne"/>
+
+            <label for="numberTwo">Número 2</label>
+            <input type="number" name="numberTwo" id="numberTwo" [(ngModel)]="numberTwo"/>
+
+            <button type="button" (click)="resultCalculator()">Somar</button>
+        </form>
+
+        <div class="result-display">
+            <p>Resultado: <span id="result"> {{ result }} </span></p>
+        </div>
+    </div>
+</div>
